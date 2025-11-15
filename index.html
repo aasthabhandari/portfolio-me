@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aastha Bhandari | Cyber Security Portfolio</title>
+    
+    <!-- Google Fonts: 'Inter' for a professional, user-friendly UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS for layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Custom Professional Styling */
+        :root {
+            --bg-color: #0f172a; /* Professional dark blue (slate-900) */
+            --primary-color: #38bdf8; /* Clear, friendly blue (sky-500) */
+            --secondary-color: #e2e8f0; /* Light gray for accents (slate-200) */
+            --text-color: #f1f5f9; /* Soft white (slate-100) */
+            --card-bg: rgba(29, 44, 70, 0.4); /* Translucent darker blue (slate-800) */
+            --card-border: rgba(56, 189, 248, 0.3); /* Subtle blue border */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* The three.js canvas will be fixed in the background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind everything */
+        }
+
+        /* Main content container for scrolling */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+            height: 100vh;
+            padding: 4rem 2rem; /* Padding for content */
+        }
+
+        /* Frosted glass card effect */
+        .pro-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            /* A more professional, subtle shadow */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+
+        /* Text color classes */
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .text-secondary {
+            color: var(--secondary-color);
+        }
+
+        /* Custom scrollbar for professional theme */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9; /* A slightly darker blue on hover */
+        }
+    </style>
+</head>
+<body class="overscroll-none">
+
+    <!-- three.js Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Scrolling Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="container mx-auto max-w-4xl">
+
+            <!-- Header Section -->
+            <header class="pro-card text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-primary mb-2">AASTHA BHANDARI</h1>
+                <p class="text-xl text-secondary">Cyber Security & Networks Student</p>
+                <div class="mt-4 flex justify-center gap-4 flex-wrap text-slate-300">
+                    <span class="text-sm md:text-base">London, England, UK</span>
+                    <span class="text-sm md:text-base opacity-50">|</span>
+                    <span class="text-sm md:text-base">07352130159</span>
+                    <span class="text-sm md:text-base opacity-50">|</span>
+                    <span class="text-sm md:text-base">aasthavhandari3@gmail.com</span>
+                </div>
+                <!-- Mailto Button Added -->
+                <div class="mt-6">
+                    <a href="mailto:aasthavhandari3@gmail.com" 
+                       class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-lg transition-colors duration-300 ease-in-out">
+                        <!-- Mail Icon (SVG) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        Get in Touch
+                    </a>
+                </div>
+            </header>
+
+            <!-- Personal Profile Section -->
+            <section class="pro-card">
+                <h2 class="text-2xl font-bold text-primary mb-4">Personal Profile</h2>
+                <p class="text-lg leading-relaxed text-slate-200">
+                    A friendly, reliable, and customer-focused professional with experience in providing exceptional service within fast-paced environments. Confident in handling cash, promoting products, supporting venue operations, and ensuring a safe, welcoming atmosphere. Flexible, proactive, and committed to following company policies, including Challenge 25 and industry compliance.
+                </p>
+            </section>
+
+            <!-- Grid for Skills & Education -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Key Skills Section -->
+                <section class="pro-card">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Key Skills</h2>
+                    <ul class="list-none space-y-2 text-slate-200">
+                        <!-- Using a "list-item" style with pseudo-elements for effect -->
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Excellent customer service & communication</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Cash handling & till operation</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Supervisory support & team guidance</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Health & safety awareness</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Challenge 25 compliance</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Flexible – mornings/evenings/nights</li>
+                        <li class="relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-primary before:font-bold before:text-xl">Reliable, confident, and friendly</li>
+                    </ul>
+                </section>
+
+                <!-- Education Section -->
+                <section class="pro-card">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Education</h2>
+                    <h3 class="text-xl text-secondary font-semibold">BSc(Hons.) Cyber Security and Networks</h3>
+                    <p class="text-lg text-slate-300">University of East London</p>
+                    <p class="text-md opacity-75">Present - 2028</p>
+                </section>
+            </div>
+
+            <!-- Work Experience Section -->
+            <section class="pro-card">
+                <h2 class="text-2xl font-bold text-primary mb-4">Work Experience</h2>
+                <div>
+                    <h3 class="text-xl text-secondary font-semibold">Hospitality Service Assistant / Team Support</h3>
+                    <p class="text-lg text-slate-300">All in one bar – London</p>
+                    <p class="text-md opacity-75">09/2025 – Present</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1 pl-2 text-slate-200 marker:text-primary">
+                        <li>Delivered welcoming customer service and assisted guests.</li>
+                        <li>Accurately handled cash, processed payments, and issued change.</li>
+                        <li>Supported promotional activities including offers and events.</li>
+                        <li>Helped maintain a clean, safe, and engaging venue environment.</li>
+                        <li>Assisted with opening/closing duties and supervising when required.</li>
+                        <li>Followed responsible practices and Challenge 25 policy.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Cybersecurity Focus & Projects Section -->
+            <section class="pro-card">
+                <h2 class="text-2xl font-bold text-primary mb-4">Cybersecurity Focus & Projects</h2>
+                <p class="text-lg leading-relaxed text-slate-200 mb-4">
+                    Beyond academic studies, I am actively engaged in the cybersecurity community and continuously building practical skills.
+                </p>
+                <ul class="list-disc list-inside mt-2 space-y-1 pl-2 text-slate-200 marker:text-primary">
+                    <li>Actively participate in online Capture The Flag (CTF) competitions to sharpen problem-solving skills.</li>
+                    <li>Building a personal home lab to test network configurations, security tools (like Wireshark and Nmap), and defensive strategies.</li>
+                    <li>Keen follower of cybersecurity news and trends from sources like Dark Reading and The Hacker News.</li>
+                    <li>Exploring penetration testing methodologies and tools in a controlled environment.</li>
+                </ul>
+            </section>
+
+            <!-- Community & Social Work Section -->
+            <section class="pro-card">
+                <h2 class="text-2xl font-bold text-primary mb-4">Community & Social Work</h2>
+                <ul class="list-disc list-inside mt-2 space-y-1 pl-2 text-slate-200 marker:text-primary">
+                    <li>Volunteer for "Tech-Safe Seniors," a local initiative to educate elderly residents about online scams and safe internet practices.</li>
+                    <li>Member of the UEL Cyber Security Society, collaborating on workshops and guest speaker events.</li>
+                    <li>Mentor for first-year IT students, offering guidance on coursework and navigating university resources.</li>
+                </ul>
+            </section>
+
+            <!-- Hobbies & Interests Section -->
+            <section class="pro-card">
+                <h2 class="text-2xl font-bold text-primary mb-4">Hobbies & Interests</h2>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-sm text-slate-200">Gaming & E-Sports Strategy</span>
+                    <span class="bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-sm text-slate-200">Digital Forensics Puzzles</span>
+                    <span class="bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-sm text-slate-200">Tech Ethics & AI Policy</span>
+                    <span class="bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-sm text-slate-200">Team Collaboration</span>
+                    <span class="bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-sm text-slate-200">Personal Development</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // --- three.js Scene ---
+
+        let scene, camera, renderer, cubes;
+        let mouseX = 0, mouseY = 0;
+        
+        // Get window dimensions
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+
+        function init() {
+            // 1. Scene
+            scene = new THREE.Scene();
+            // Add a subtle fog matching the background
+            scene.fog = new THREE.FogExp2(0x0f172a, 0.002);
+
+            // 2. Camera
+            camera = new THREE.PerspectiveCamera(
+                60, // Field of view
+                window.innerWidth / window.innerHeight, // Aspect ratio
+                1, // Near clip
+                1000 // Far clip
+            );
+            camera.position.z = 5; // Start camera back
+
+            // 3. Renderer
+            const canvas = document.getElementById('bg-canvas');
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas, 
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // 4. Objects (Subtle background grid)
+            const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2); // Smaller cubes
+            // A more subtle, professional color for the wireframe
+            const material = new THREE.MeshBasicMaterial({
+                color: 0xe2e8f0, // Using the --secondary-color (slate-200)
+                wireframe: true,
+                opacity: 0.5, // Make them slightly transparent
+                transparent: true
+            });
+            
+            cubes = new THREE.Group(); // Group to hold all cubes
+            const grid_size = 20;
+            const spacing = 5;
+
+            // Reduced number of cubes for a cleaner look
+            for (let i = 0; i < 750; i++) {
+                const cube = new THREE.Mesh(geometry, material);
+                
+                // Position cubes randomly in a large 3D grid
+                cube.position.x = Math.random() * grid_size * spacing - (grid_size * spacing / 2);
+                cube.position.y = Math.random() * grid_size * spacing - (grid_size * spacing / 2);
+                cube.position.z = Math.random() * grid_size * spacing - (grid_size * spacing / 2);
+
+                // Add random rotation
+                cube.rotation.x = Math.random() * 2 * Math.PI;
+                cube.rotation.y = Math.random() * 2 * Math.PI;
+                cube.rotation.z = Math.random() * 2 * Math.PI;
+
+                cubes.add(cube);
+            }
+            scene.add(cubes);
+
+            // 5. Event Listeners
+            document.addEventListener('mousemove', onDocumentMouseMove);
+            window.addEventListener('resize', onWindowResize);
+        }
+
+        function onDocumentMouseMove(event) {
+            // Calculate normalized mouse position (-1 to 1)
+            mouseX = (event.clientX - windowHalfX) / windowHalfX;
+            mouseY = (event.clientY - windowHalfY) / windowHalfY;
+        }
+
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // 6. Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // --- This is the cursor pointing movement ---
+            // We slowly move the camera target based on the mouse position
+            // This creates a subtle parallax "look" effect.
+            // Using easing (lerp) for a smoother effect.
+            
+            // Target camera position
+            const targetX = mouseX * 2; // How much to move
+            const targetY = -mouseY * 2; // Invert Y
+            
+            // Smoothly interpolate camera position
+            camera.position.x += (targetX - camera.position.x) * 0.02;
+            camera.position.y += (targetY - camera.position.y) * 0.02;
+            
+            // Make the camera look at a point slightly in front of the origin
+            camera.lookAt(scene.position.x, scene.position.y, scene.position.z - 2);
+
+            // Also, slowly rotate the entire group of cubes
+            if (cubes) {
+                cubes.rotation.y += 0.0005;
+                cubes.rotation.x += 0.0002;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Start everything
+        init();
+        animate();
+    </script>
+</body>
+</html>
